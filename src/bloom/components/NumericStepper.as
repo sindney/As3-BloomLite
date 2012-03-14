@@ -85,27 +85,24 @@ package bloom.components
 			if (background) background.dispose();
 			background = null;
 			
-			removeChild(_increase);
+			ThemeBase.onStageMouseUp.remove(onMouseUp);
+			
 			_increase.dispose();
 			_increase = null;
-			
-			removeChild(_decrease);
 			_decrease.dispose();
 			_decrease = null;
-			
-			removeChild(_textBase);
 			_textBase.dispose();
 			_textBase = null;
 			
 			_mouseWheel.removeAll();
 			_mouseWheel = null;
-			
 			_valueChanged.removeAll();
 			_valueChanged = null;
-			
 			_timerTick.removeAll();
 			_timerTick = null;
 			
+			_timer.reset();
+			_timer.stop();
 			_timer = null;
 		}
 		
@@ -138,18 +135,17 @@ package bloom.components
 			_increasing = true;
 			_timer.reset();
 			_timer.start();
-			stage.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+			ThemeBase.onStageMouseUp.addOnce(onMouseUp);
 		}
 		
 		private function onDecreasePress(e:MouseEvent):void {
 			_increasing = false;
 			_timer.reset();
 			_timer.start();
-			stage.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+			ThemeBase.onStageMouseUp.addOnce(onMouseUp);
 		}
 		
 		private function onMouseUp(e:MouseEvent):void {
-			stage.removeEventListener(MouseEvent.MOUSE_UP, onMouseUp);
 			_timer.stop();
 			_timer.delay = 1000;
 		}

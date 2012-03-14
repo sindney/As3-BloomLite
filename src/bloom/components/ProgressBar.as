@@ -49,7 +49,6 @@ package bloom.components
 			_completed.removeAll();
 			_completed = null;
 			
-			graphics.clear();
 			progress.graphics.clear();
 			removeChild(progress);
 			progress = null;

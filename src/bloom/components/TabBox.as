@@ -100,9 +100,9 @@ package bloom.components
 			super.dispose();
 			_header.dispose();
 			for each(var object:TabBoxContent in _objects) object.dispose();
-			_objects = null;
 			_group.removeAll();
 			_group = null;
+			_objects = null;
 			_target = null;
 		}
 		

@@ -82,25 +82,19 @@ package bloom.components
 			
 			_mouseWheel.removeAll();
 			_mouseWheel = null;
-			
 			_mouseDown.removeAll();
 			_mouseDown = null;
-			
 			_valueChanged.removeAll();
 			_valueChanged = null;
-			
 			_scrolling.removeAll();
 			_scrolling = null;
 			
-			removeChild(_button);
 			_button.dispose();
 			_button = null;
 			
 			removeChild(_bg);
 			_bg.graphics.clear();
 			_bg = null;
-			
-			graphics.clear();
 		}
 		
 		override protected function onThemeChanged():void {

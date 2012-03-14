@@ -171,10 +171,7 @@ package bloom.components
 			_header.dispose();
 			removeChild(_footer);
 			_footer.dispose();
-			if (_content) {
-				removeChild(_content);
-				_content.dispose();
-			}
+			if (_content) _content.dispose();
 			onHeaderClicked.removeAll();
 			onHeaderClicked = null;
 			onScalerClicked.removeAll();

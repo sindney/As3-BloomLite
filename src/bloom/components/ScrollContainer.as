@@ -74,15 +74,11 @@ package bloom.components
 			super.dispose();
 			if (background) background.dispose();
 			background = null;
-			removeChild(_content);
-			_content = null;
 			_bg.graphics.clear();
 			removeChild(_bg);
 			_bg = null;
-			if (h_scrollBar_enabled) removeChild(h_scrollBar);
 			h_scrollBar.dispose();
 			h_scrollBar = null;
-			if (v_scrollBar_enabled) removeChild(v_scrollBar);
 			v_scrollBar.dispose();
 			v_scrollBar = null;
 			v_mouseWheel.removeAll();

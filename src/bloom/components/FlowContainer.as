@@ -14,14 +14,11 @@ package bloom.components
 		public static const VERTICALLY:int = 0;
 		public static const HORIZONTALLY:int = 1;
 		
-		protected var _content:Sprite;
 		protected var _direction:int;
 		
 		public function FlowContainer(p:DisplayObjectContainer = null, direction:int = 0) {
 			super(p);
 			_direction = direction;
-			_content = new Sprite();
-			addChild(_content);
 		}
 		
 		public function update():void {

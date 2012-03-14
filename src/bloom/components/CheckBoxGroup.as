@@ -69,6 +69,16 @@ package bloom.components
 			return null;
 		}
 		
+		public function dispose():void {
+			super.removeAll();
+			var i:int, j:int = numChildren;
+			for (i = 0; i < j; i++) {
+				(_content[i] as CheckBox).mouseClick.remove(onChanged);
+			}
+			_content = null;
+			_target = null;
+		}
+		
 		private function update():void {
 			var i:int, j:int = numChildren;
 			for (i = 0; i < j; i++) {

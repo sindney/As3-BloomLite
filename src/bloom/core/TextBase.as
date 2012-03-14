@@ -52,6 +52,7 @@ package bloom.core
 		
 		public function dispose():void {
 			ThemeBase.onThemeChanged.remove(onThemeChanged);
+			if (parent) parent.removeChild(this);
 			_style = null;
 			_onTextChanged.removeAll();
 			_onTextChanged = null;

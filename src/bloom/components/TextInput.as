@@ -41,7 +41,6 @@ package bloom.components
 			super.dispose();
 			if (background) background.dispose();
 			background = null;
-			removeChild(_textBase);
 			_textBase.dispose();
 			_textBase = null;
 		}

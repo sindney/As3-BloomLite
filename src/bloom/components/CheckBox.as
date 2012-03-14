@@ -53,7 +53,6 @@ package bloom.components
 			super.dispose();
 			if (background) background.dispose();
 			background = null;
-			removeChild(_title);
 			_title.dispose();
 			_title = null;
 			_mouseClick.removeAll();

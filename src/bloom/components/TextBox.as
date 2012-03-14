@@ -58,15 +58,10 @@ package bloom.components
 			if (background) background.dispose();
 			background = null;
 			
-			removeChild(_textBase);
 			_textBase.dispose();
 			_textBase = null;
-			
-			removeChild(_scrollBar);
 			_scrollBar.dispose();
 			_scrollBar = null;
-			
-			graphics.clear();
 		}
 		
 		override protected function onThemeChanged():void {

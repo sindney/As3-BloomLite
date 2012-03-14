@@ -37,7 +37,6 @@ package bloom.components
 		
 		override public function dispose():void {
 			super.dispose();
-			removeChild(_title);
 			_title.dispose();
 			_title = null;
 			if (_icon) removeChild(_icon);

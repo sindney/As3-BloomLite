@@ -1,7 +1,9 @@
 package bloom.components 
 {
 	import flash.display.BitmapData;
+	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
+	import flash.display.Sprite;
 	import flash.events.Event;
 	
 	import bloom.core.Component;
@@ -15,9 +17,13 @@ package bloom.components
 		
 		protected var background:BitmapData;
 		
+		protected var _content:Sprite;
+		
 		public function Container(p:DisplayObjectContainer = null) {
 			super(p);
 			_style = ThemeBase.theme.container;
+			_content = new Sprite();
+			addChild(_content);
 			size(100, 100);
 		}
 		
@@ -25,6 +31,10 @@ package bloom.components
 			super.dispose();
 			if (background) background.dispose();
 			background = null;
+			var i:int, j:int = _content.numChildren;
+			for (i = 0; i < j; i++) 
+				_content.removeChildAt(0);
+			_content = null;
 		}
 		
 		override protected function onThemeChanged():void {

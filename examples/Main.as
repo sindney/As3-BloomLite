@@ -113,6 +113,7 @@ package
 			accordionContent.content.height = 100;
 			accordionContent.content.addChild(new CheckBox(null, "CheckBox"));
 			accordionContent.content.update();
+			accordionContent.selected = true;
 			accordion.addContent(accordionContent);
 			
 			accordionContent = new AccordionContent("Part 2");
@@ -152,6 +153,9 @@ package
 			flowContainer = new FlowContainer();
 			flowContainer.style = style;
 			flowContainer.margin.reset(0, 8, 0, 8);
+			
+			var colorPicker:ColorPicker = new ColorPicker(this);
+			colorPicker.move(500, 120);
 			
 			var window:Window = new Window(this, flowContainer);
 			window.header.content.addChild(new Label(null, "Window"));

@@ -60,10 +60,13 @@ package bloom.components
 		}
 		
 		private function onMouseClicked(e:MouseEvent):void {
-			if (!colorMap.parent) {
+			if (!colorMap.parent && parent) {
 				mouseMove.add(onMouseMove);
 				ThemeBase.onStageMouseUp.addOnce(onMouseUp);
-				ThemeBase.stage.addChild(colorMap);
+				parent.addChild(colorMap);
+				
+				colorMap.x = x + _width + _margin.right;
+				colorMap.y = y;
 			}
 		}
 		
@@ -73,7 +76,7 @@ package bloom.components
 		
 		private function onMouseUp(e:MouseEvent):void {
 			mouseMove.remove(onMouseMove);
-			ThemeBase.stage.removeChild(colorMap);
+			parent.removeChild(colorMap);
 		}
 		
 		private function onTextChanged(e:Event):void {
@@ -89,6 +92,7 @@ package bloom.components
 		
 		override public function dispose():void {
 			super.dispose();
+			ThemeBase.onStageMouseUp.remove(onMouseUp);
 			mouseClicked.removeAll();
 			mouseClicked = null;
 			mouseMove.removeAll();
@@ -96,7 +100,7 @@ package bloom.components
 			colorMap.removeChild(_plate);
 			_plate.bitmapData.dispose();
 			_plate = null;
-			if (colorMap.parent) ThemeBase.stage.removeChild(colorMap);
+			if (colorMap.parent) parent.removeChild(colorMap);
 			colorMap = null;
 			removeChild(signal);
 			signal.graphics.clear();
@@ -131,9 +135,6 @@ package bloom.components
 			signal.graphics.beginFill(_color, 1);
 			signal.graphics.drawRect(0, 0, _height, _height);
 			signal.graphics.endFill();
-			
-			colorMap.x = x + _width + _margin.right;
-			colorMap.y = y;
 		}
 		
 		///////////////////////////////////
