@@ -39,9 +39,9 @@ package bloom.themes
 		
 		function get window():WindowStyle;
 		
-		function get tabBoxContent():TabBoxStyle;
+		function get tabBox():TabBoxStyle;
 		
-		function get accordionContent():AccordionStyle;
+		function get accordion():AccordionStyle;
 		
 	}
 	

@@ -26,7 +26,7 @@ package bloom.components
 		}
 		
 		override protected function onThemeChanged():void {
-			style = ThemeBase.theme.label;
+			if (!_lock) style = ThemeBase.theme.label;
 		}
 		
 		///////////////////////////////////

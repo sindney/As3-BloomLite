@@ -151,7 +151,7 @@ package bloom.components
 		}
 		
 		override protected function onThemeChanged():void {
-			style = ThemeBase.theme.numericStepper;
+			if (!_lock) style = ThemeBase.theme.numericStepper;
 		}
 		
 		override protected function draw(e:Event):void {

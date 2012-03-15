@@ -44,12 +44,14 @@ package bloom.components
 			addChild(_content);
 			
 			h_scrollBar = new ScrollBar(null, HORIZONTALLY);
+			h_scrollBar.lock = true;
 			h_scrollBar.autoHide = false;
 			h_scrollBar.step = 20;
 			h_scrollBar.scrolling.add(onHScrollBarMove);
 			h_scrollBar.valueChanged.add(onHScrollBarMove);
 			
 			v_scrollBar = new ScrollBar(null, VERTICALLY);
+			v_scrollBar.lock = true;
 			v_scrollBar.autoHide = false;
 			v_scrollBar.step = 20;
 			v_scrollBar.scrolling.add(onVScrollBarMove);
@@ -88,7 +90,7 @@ package bloom.components
 		}
 		
 		override protected function onThemeChanged():void {
-			style = ThemeBase.theme.scrollContainer;
+			if (!_lock) style = ThemeBase.theme.scrollContainer;
 		}
 		
 		public function getScrollBar(direction:int):ScrollBar {

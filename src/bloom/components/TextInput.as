@@ -46,7 +46,7 @@ package bloom.components
 		}
 		
 		override protected function onThemeChanged():void {
-			style = ThemeBase.theme.textInput;
+			if (!_lock) style = ThemeBase.theme.textInput;
 		}
 		
 		override protected function draw(e:Event):void {

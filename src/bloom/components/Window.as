@@ -57,6 +57,7 @@ package bloom.components
 			_minHeight = 100;
 			
 			_header = new FlowContainer(this, FlowContainer.HORIZONTALLY);
+			_header.lock = true;
 			_header.tabEnabled = false;
 			
 			onHeaderClicked = new NativeSignal(_header, MouseEvent.MOUSE_DOWN, MouseEvent);
@@ -73,6 +74,7 @@ package bloom.components
 			onScalerClicked.add(onScalerMouseDown);
 			
 			_footer = new FlowContainer(this, FlowContainer.HORIZONTALLY);
+			_footer.lock = true;
 			
 			_headerSize = 30;
 			_footerSize = 30;
@@ -179,7 +181,7 @@ package bloom.components
 		}
 		
 		override protected function onThemeChanged():void {
-			style = ThemeBase.theme.window;
+			if (!_lock) style = ThemeBase.theme.window;
 		}
 		
 		override protected function draw(e:Event):void {

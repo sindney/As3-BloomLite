@@ -62,7 +62,7 @@ package bloom.components
 		}
 		
 		override protected function onThemeChanged():void {
-			style = ThemeBase.theme.checkBox;
+			if (!_lock) style = ThemeBase.theme.checkBox;
 		}
 		
 		override protected function draw(e:Event):void {

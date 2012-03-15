@@ -40,7 +40,7 @@ package bloom.components
 		}
 		
 		override protected function onThemeChanged():void {
-			style = ThemeBase.theme.toggleButton;
+			if (!_lock) style = ThemeBase.theme.toggleButton;
 		}
 		
 		override protected function draw(e:Event):void {

@@ -26,6 +26,7 @@ package bloom.components
 		public function TabBox(p:DisplayObjectContainer = null) {
 			super(p);
 			_header = new FlowContainer(this, FlowContainer.HORIZONTALLY);
+			_header.lock = true;
 			
 			_objects = new Vector.<TabBoxContent>();
 			
@@ -35,7 +36,7 @@ package bloom.components
 			_headerSize = 30;
 			_headerPadding = 20;
 			
-			style = ThemeBase.theme.tabBoxContent;
+			style = ThemeBase.theme.tabBox;
 		}
 		
 		public function addContent(value:TabBoxContent):void {
@@ -62,7 +63,7 @@ package bloom.components
 			if (result) {
 				_group.removeChild(result.title);
 				_header.removeChild(result.title);
-				if (result.content.parent) removeChild(result.content);
+				if (result.content.parent) _content.removeChild(result.content);
 				if (result == _target)_target = null;
 			}
 			return result;
@@ -89,7 +90,7 @@ package bloom.components
 		public function update():void {
 			_header.size(_width, _headerSize);
 			if (_target) {
-				if (!_target.content.parent) addChild(_target.content);
+				if (!_target.content.parent) _content.addChild(_target.content);
 				_target.content.y = _headerSize;
 				_target.content.width = _width;
 				_target.content.height = _height - _headerSize;
@@ -107,11 +108,7 @@ package bloom.components
 		}
 		
 		override protected function onThemeChanged():void {
-			style = ThemeBase.theme.tabBoxContent;
-			var object:TabBoxContent;
-			for each(object in _objects) {
-				object.style = style;
-			}
+			if (!_lock) style = ThemeBase.theme.tabBox;
 		}
 		
 		override protected function draw(e:Event):void {
@@ -132,7 +129,7 @@ package bloom.components
 		private function onTabChanged(object:CheckBoxGroup):void {
 			if (_target) {
 				_target.title.mouseEnabled = true;
-				removeChild(_target.content);
+				_content.removeChild(_target.content);
 			}
 			_target = _objects[object.index];
 			_target.title.mouseEnabled = false;

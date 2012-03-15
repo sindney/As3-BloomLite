@@ -17,6 +17,7 @@ package bloom.core
 		
 		protected var _enabled:Boolean = true;
 		protected var _changed:Boolean = false;
+		protected var _lock:Boolean = false;
 		
 		protected var _onResized:Signal;
 		
@@ -143,6 +144,14 @@ package bloom.core
 		
 		public function get margin():Margin {
 			return _margin;
+		}
+		
+		public function get lock():Boolean {
+			return _lock;
+		}
+		
+		public function set lock(value:Boolean):void {
+			_lock = value;
 		}
 		
 		///////////////////////////////////

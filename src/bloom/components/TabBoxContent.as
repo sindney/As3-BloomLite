@@ -20,12 +20,14 @@ package bloom.components
 		
 		public function TabBoxContent(title:String = "", content:FlowContainer = null) {
 			_title = new ToggleButton(null, title);
+			_title.lock = true;
 			if (content) {
 				_content = content;
 			} else {
 				_content = new FlowContainer();
 			}
-			style = ThemeBase.theme.tabBoxContent;
+			_content.lock = true;
+			style = ThemeBase.theme.tabBox;
 		}
 		
 		public function dispose():void {

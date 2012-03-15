@@ -98,7 +98,7 @@ package bloom.components
 		}
 		
 		override protected function onThemeChanged():void {
-			style = ThemeBase.theme.slider;
+			if (!_lock) style = ThemeBase.theme.slider;
 		}
 		
 		override protected function draw(e:Event):void {

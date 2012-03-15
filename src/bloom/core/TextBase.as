@@ -19,6 +19,7 @@ package bloom.core
 		
 		protected var _margin:Margin;
 		protected var _enabled:Boolean = true;
+		protected var _lock:Boolean = false;
 		
 		protected var _onTextChanged:NativeSignal;
 		protected var _onFocusedIn:NativeSignal;
@@ -116,6 +117,14 @@ package bloom.core
 		public function get onTextScroll():NativeSignal {
 			if (!_onTextScroll)_onTextScroll = new NativeSignal(this, Event.SCROLL, Event);
 			return _onTextScroll;
+		}
+		
+		public function get lock():Boolean {
+			return _lock;
+		}
+		
+		public function set lock(value:Boolean):void {
+			_lock = value;
 		}
 		
 		///////////////////////////////////

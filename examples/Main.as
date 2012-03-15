@@ -11,6 +11,9 @@ package
 	import bloom.core.ThemeBase;
 	import bloom.styles.ContainerStyle;
 	import bloom.themes.BlueTheme;
+	import bloom.themes.Theme;
+	
+	import theme.DemoTheme;
 	
 	public class Main extends Sprite {
 		
@@ -25,8 +28,11 @@ package
 			stage.scaleMode = "noScale";
 			stage.align = "TL";
 			
+			var blue:Theme = new BlueTheme();
+			var wb:Theme = new DemoTheme();
+			
 			ThemeBase.initialize(stage);
-			ThemeBase.theme = new BlueTheme();
+			ThemeBase.theme = blue;
 			
 			var flowContainer:FlowContainer = new FlowContainer(this, FlowContainer.VERTICALLY);
 			flowContainer.size(220, 620);
@@ -49,9 +55,10 @@ package
 				button.title.text = "One does not simply";
 			});
 			
-			var checkBox:CheckBox = new CheckBox(flowContainer.content, "Normal");
+			var checkBox:CheckBox = new CheckBox(flowContainer.content, "Blue Theme", true);
 			checkBox.valueChanged.add(function(target:CheckBox):void {
-				target.title.text = target.value ? "Active" : "Normal";
+				target.title.text = target.value ? "Blue Theme" : "White and black Theme";
+				ThemeBase.theme = target.value ? blue : wb;
 			});
 			
 			var textInput:TextInput = new TextInput(flowContainer.content, "Nothing");
@@ -147,15 +154,16 @@ package
 			
 			tabBox.header.update();
 			
+			var colorPicker:ColorPicker = new ColorPicker(this);
+			colorPicker.move(500, 120);
+			
 			var style:ContainerStyle = new ContainerStyle();
 			style.background = new ScaleBitmap(new BitmapData(1, 1, false, 0xCCCCCC));
 			
 			flowContainer = new FlowContainer();
+			flowContainer.lock = true;
 			flowContainer.style = style;
 			flowContainer.margin.reset(0, 8, 0, 8);
-			
-			var colorPicker:ColorPicker = new ColorPicker(this);
-			colorPicker.move(500, 120);
 			
 			var window:Window = new Window(this, flowContainer);
 			window.header.content.addChild(new Label(null, "Window"));

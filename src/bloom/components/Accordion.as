@@ -17,46 +17,28 @@ package bloom.components
 	/**
 	 * Accordion
 	 */
-	public class Accordion extends Sprite implements IObjectBase {
+	public class Accordion extends Container {
 		
 		private var _multiSelect:Boolean;
-		private var _enabled:Boolean;
 		
-		private var _margin:Margin;
 		private var _last:AccordionContent;
 		private var _target:AccordionContent;
 		private var _objects:Vector.<AccordionContent>;
 		
-		private var _style:IStyle;
-		
-		private var _onResized:Signal;
-		
 		public function Accordion(p:DisplayObjectContainer = null) {
-			super();
-			_margin = new Margin();
-			if (p) p.addChild(this);
+			super(p);
 			
 			_multiSelect = false;
-			_enabled = true;
-			
 			_objects = new Vector.<AccordionContent>();
 			
-			_onResized = new Signal();
-			
-			_style = ThemeBase.theme.accordionContent;
-			ThemeBase.onThemeChanged.add(onThemeChanged);
-		}
-		
-		public function move(x:Number, y:Number):void {
-			this.x = x;
-			this.y = y;
+			style = ThemeBase.theme.accordion;
 		}
 		
 		public function addContent(value:AccordionContent):void {
 			_objects.push(value);
 			value.style = _style;
 			value.mouseClicked.add(onContentClick);
-			addChild(value);
+			_content.addChild(value);
 		}
 		
 		public function removeContent(value:AccordionContent):void {
@@ -68,7 +50,7 @@ package bloom.components
 			if (object) {
 				_objects.splice(index, 1)[0];
 				object.mouseClicked.remove(onContentClick);
-				removeChild(object);
+				_content.removeChild(object);
 			}
 			return object;
 		}
@@ -92,24 +74,20 @@ package bloom.components
 			_onResized.dispatch();
 		}
 		
-		public function dispose():void {
-			ThemeBase.onThemeChanged.remove(onThemeChanged);
-			if (parent) parent.removeChild(this);
-			_style = null;
-			_margin = null;
-			
+		override public function dispose():void {
+			super.dispose();
 			for each(var object:AccordionContent in _objects) object.dispose();
-			_onResized.removeAll();
-			_onResized = null;
 			_objects = null;
 		}
 		
-		protected function onThemeChanged():void {
-			style = ThemeBase.theme.accordionContent;
-			var object:AccordionContent;
-			for each(object in _objects) {
-				object.style = style;
-			}
+		override protected function onThemeChanged():void {
+			if (!_lock) style = ThemeBase.theme.accordion;
+		}
+		
+		override protected function draw(e:Event):void {
+			if (!_changed) return;
+			_changed = false;
+			update();
 		}
 		
 		private function onContentClick(e:Event):void {
@@ -129,27 +107,7 @@ package bloom.components
 			return _multiSelect;
 		}
 		
-		public function set enabled(value:Boolean):void {
-			if (_enabled != value) {
-				for each(var object:AccordionContent in _objects) object.enabled = value;
-				_enabled = mouseEnabled = mouseChildren = value;
-				alpha = _enabled ? 1 : ThemeBase.theme.alpha;
-			}
-		}
-		
-		public function get enabled():Boolean {
-			return _enabled;
-		}
-		
-		public function get margin():Margin {
-			return _margin;
-		}
-		
-		public function get style():IStyle {
-			return _style;
-		}
-		
-		public function set style(value:IStyle):void {
+		override public function set style(value:IStyle):void {
 			if (_style != value) {
 				_style = value;
 				if (_style) {

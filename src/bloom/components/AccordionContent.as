@@ -38,6 +38,7 @@ package bloom.components
 			_margin = new Margin();
 			
 			_title = new ToggleButton(this, title);
+			_title.lock = true;
 			_title.size(100, 30);
 			
 			if (content) {
@@ -45,6 +46,7 @@ package bloom.components
 			} else {
 				_content = new FlowContainer(null, FlowContainer.VERTICALLY);
 			}
+			_content.lock = true;
 			
 			_mouseClicked = new NativeSignal(_title, MouseEvent.CLICK, MouseEvent);
 			_mouseClicked.add(onMouseClick);

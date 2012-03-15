@@ -15,6 +15,9 @@ package bloom.core
 		
 		function size(w:Number, h:Number):void;
 		
+		function set lock(value:Boolean):void;
+		function get lock():Boolean;
+		
 		function set enabled(value:Boolean):void;
 		function get enabled():Boolean;
 		

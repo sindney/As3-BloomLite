@@ -38,6 +38,7 @@ package bloom.components
 			_textBase.onFocusedOut.add(onFocusedOut);
 			
 			_scrollBar = new ScrollBar(this, 0, 0, 0);
+			_scrollBar.lock = true;
 			_scrollBar.step = 1;
 			_scrollBar.autoHide = false;
 			_scrollBar.width = 20;
@@ -65,7 +66,7 @@ package bloom.components
 		}
 		
 		override protected function onThemeChanged():void {
-			style = ThemeBase.theme.textBox;
+			if (!_lock) style = ThemeBase.theme.textBox;
 		}
 		
 		override protected function draw(e:Event):void {

@@ -55,7 +55,7 @@ package bloom.components
 		}
 		
 		override protected function onThemeChanged():void {
-			style = ThemeBase.theme.progressBar;
+			if (!_lock) style = ThemeBase.theme.progressBar;
 		}
 		
 		override protected function draw(e:Event):void {

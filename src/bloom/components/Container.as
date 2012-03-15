@@ -38,7 +38,7 @@ package bloom.components
 		}
 		
 		override protected function onThemeChanged():void {
-			style = ThemeBase.theme.container;
+			if (!_lock) style = ThemeBase.theme.container;
 		}
 		
 		override protected function draw(e:Event):void {

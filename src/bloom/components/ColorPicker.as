@@ -35,10 +35,12 @@ package bloom.components
 			
 			signal = new Sprite();
 			signal.buttonMode = true;
+			signal.tabEnabled = false;
 			addChild(signal);
 			
 			colorMap = new Sprite();
 			colorMap.buttonMode = true;
+			colorMap.tabEnabled = false;
 			
 			_plate = new Bitmap();
 			colorMap.addChild(_plate);
@@ -86,8 +88,10 @@ package bloom.components
 		}
 		
 		override protected function onThemeChanged():void {
-			style = ThemeBase.theme.textInput;
-			plate = ThemeBase.theme.plate;
+			if (!_lock) {
+				style = ThemeBase.theme.textInput;
+				plate = ThemeBase.theme.plate;
+			}
 		}
 		
 		override public function dispose():void {
