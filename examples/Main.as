@@ -37,7 +37,13 @@ package
 			var flowContainer:FlowContainer = new FlowContainer(this, FlowContainer.VERTICALLY);
 			flowContainer.size(220, 620);
 			
-			var label:Label = new Label(flowContainer.content, "Label");
+			var label:Label = new Label(flowContainer.content, "BloomLite 1.0");
+			
+			var checkBox:CheckBox = new CheckBox(flowContainer.content, "Blue Theme", true);
+			checkBox.valueChanged.add(function(target:CheckBox):void {
+				target.title.text = target.value ? "Blue Theme" : "Black and white Theme";
+				ThemeBase.theme = target.value ? blue : wb;
+			});
 			
 			var buttonBase:ButtonBase = new ButtonBase(flowContainer.content);
 			buttonBase = new ButtonBase(flowContainer.content);
@@ -53,12 +59,6 @@ package
 			});
 			button.mouseUp.add(function(e:MouseEvent):void {
 				button.title.text = "One does not simply";
-			});
-			
-			var checkBox:CheckBox = new CheckBox(flowContainer.content, "Blue Theme", true);
-			checkBox.valueChanged.add(function(target:CheckBox):void {
-				target.title.text = target.value ? "Blue Theme" : "White and black Theme";
-				ThemeBase.theme = target.value ? blue : wb;
 			});
 			
 			var textInput:TextInput = new TextInput(flowContainer.content, "Nothing");
