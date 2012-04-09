@@ -12,7 +12,7 @@ package bloom.components
 	 */
 	public class ToggleButton extends CheckBox {
 		
-		private var _icon:DisplayObject;
+		protected var _icon:DisplayObject;
 		
 		public function ToggleButton(p:DisplayObjectContainer=null, title:String="", value:Boolean=false) {
 			super(p, title, value);

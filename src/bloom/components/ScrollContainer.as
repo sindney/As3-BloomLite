@@ -18,18 +18,18 @@ package bloom.components
 	 */
 	public class ScrollContainer extends FlowContainer {
 		
-		private var h_scrollBar_enabled:Boolean;
-		private var v_scrollBar_enabled:Boolean;
+		protected var h_scrollBar_enabled:Boolean;
+		protected var v_scrollBar_enabled:Boolean;
 		
-		private var h_scrollBar:ScrollBar;
-		private var v_scrollBar:ScrollBar;
-		private var h_mouseWheel:NativeSignal;
-		private var v_mouseWheel:NativeSignal;
-		private var h_eventAdded:Boolean;
-		private var v_eventAdded:Boolean;
+		protected var h_scrollBar:ScrollBar;
+		protected var v_scrollBar:ScrollBar;
+		protected var h_mouseWheel:NativeSignal;
+		protected var v_mouseWheel:NativeSignal;
+		protected var h_eventAdded:Boolean;
+		protected var v_eventAdded:Boolean;
 		
-		private var _rect:Rectangle;
-		private var _bg:Sprite;
+		protected var _rect:Rectangle;
+		protected var _bg:Sprite;
 		
 		public function ScrollContainer(p:DisplayObjectContainer = null, direction:int = 0) {
 			super(p, direction);

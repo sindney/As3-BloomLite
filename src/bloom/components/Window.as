@@ -266,7 +266,11 @@ package bloom.components
 		public function set maxWidth(value:Number):void {
 			if (_maxWidth != value) {
 				_maxWidth = value;
-				if (_width > _maxWidth)_width = _maxWidth;
+				if (_width > _maxWidth) {
+					_width = _maxWidth;
+					_changed = true;
+					invalidate();
+				}
 			}
 		}
 		
@@ -277,7 +281,11 @@ package bloom.components
 		public function set minWidth(value:Number):void {
 			if (_minWidth != value) {
 				_minWidth = value;
-				if (_width < _minWidth)_width = _minWidth;
+				if (_width < _minWidth) {
+					_width = _minWidth;
+					_changed = true;
+					invalidate();
+				}
 			}
 		}
 		
@@ -288,7 +296,11 @@ package bloom.components
 		public function set maxHeight(value:Number):void {
 			if (_maxHeight != value) {
 				_maxHeight = value;
-				if (_height > _maxHeight)_height = _maxHeight;
+				if (_height > _maxHeight) {
+					_height = _maxHeight;
+					_changed = true;
+					invalidate();
+				}
 			}
 		}
 		
@@ -299,7 +311,11 @@ package bloom.components
 		public function set minHeight(value:Number):void {
 			if (_minHeight != value) {
 				_minHeight = value;
-				if (_height < _minHeight)_height = _minHeight;
+				if (_height < _minHeight) {
+					_height = _minHeight;
+					_changed = true;
+					invalidate();
+				}
 			}
 		}
 		

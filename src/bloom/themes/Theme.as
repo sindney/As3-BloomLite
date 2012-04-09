@@ -26,6 +26,7 @@ package bloom.themes
 		protected var _window:WindowStyle;
 		protected var _tabBox:TabBoxStyle;
 		protected var _accordion:AccordionStyle;
+		protected var _list:ListStyle;
 		
 		public function Theme() {
 			
@@ -101,6 +102,10 @@ package bloom.themes
 		
 		public function get accordion():AccordionStyle {
 			return _accordion;
+		}
+		
+		public function get list():ListStyle {
+			return _list;
 		}
 		
 		///////////////////////////////////
