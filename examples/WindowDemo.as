@@ -1,6 +1,7 @@
 package  
 {
 	import flash.display.BitmapData;
+	import flash.display.Shape;
 	import flash.display.Sprite;
 	
 	import bloom.components.*;
@@ -48,8 +49,25 @@ package
 			window.liveResize = true;
 			window.minWidth = 200;
 			window.minHeight = 200;
-			window.move(10, 10);
+			window.move(220, 10);
 			window.size(200, 200);
+			
+			var shape:Shape = new Shape();
+			shape.graphics.beginFill(0x0066ff);
+			shape.graphics.drawRect(0, 0, 10, 10);
+			shape.graphics.endFill();
+			
+			var data:Array = [["0", null], ["1", null], ["2", shape], ["3", null], ["4", null], ["5", null], ["6", null], ["7", null], ["8", null]];
+			
+			var list:List = new List(this, data);
+			list.getScrollBar(FlowContainer.VERTICALLY).width = 30;
+			//list.autoScale = false;
+			//list.contentHeight = 40;
+			//list.contentWidth = 120;
+			//list.contentMargin.reset(5, 5, 5, 5);
+			list.group.index = 2;
+			list.size(200, 100);
+			list.move(10, 10);
 		}
 		
 	}
