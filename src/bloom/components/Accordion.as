@@ -59,6 +59,12 @@ package bloom.components
 			return _objects[index];
 		}
 		
+		public function selectContent(index:int):void {
+			_target = _objects[index];
+			_target.selected = true;
+			update();
+		}
+		
 		/**
 		 * Call update() after addContent/removeContent ... 
 		 */
