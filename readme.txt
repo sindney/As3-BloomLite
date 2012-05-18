@@ -4,7 +4,6 @@ BloomLite
 A speed first branch of as3-bloom ui framework.
 
 http://sindney.com/project/bloom
-https://bitbucket.org/sindney/bloomlite
 https://github.com/impaler/As3-Bloom
 
 By sindney, impaler
