@@ -1,8 +1,5 @@
 package bloom.styles 
 {
-	import bloom.core.ScaleBitmap;
-	import bloom.styles.SliderStyle;
-	
 	/**
 	 * ScrollContainerStyle
 	 */

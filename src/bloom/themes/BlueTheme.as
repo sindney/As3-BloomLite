@@ -29,7 +29,8 @@ package bloom.themes
 			_window = new BlueWindow();
 			_tabBox = new BlueTabBox();
 			_accordion = new BlueAccordion();
-			_list = new BlueListStyle();
+			_list = new BlueList();
+			_tree = new BlueTree();
 		}
 		
 		///////////////////////////////////

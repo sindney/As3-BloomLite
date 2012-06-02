@@ -32,5 +32,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ----------------------------------------------------------------
-BloomLite 1.0
+BloomLite 1.1
 ----------------------------------------------------------------

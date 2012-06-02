@@ -13,9 +13,9 @@ package bloom.themes.blue
 	import bloom.styles.ToggleButtonStyle;
 	
 	/**
-	 * BlueListStyle
+	 * BlueList
 	 */
-	public class BlueListStyle extends ListStyle {
+	public class BlueList extends ListStyle {
 		
 		[Embed(source="assets/sc_scrollbar.png")]
 		private static var bm0:Class;
@@ -29,7 +29,7 @@ package bloom.themes.blue
 		[Embed(source="assets/sc_scrollbar_down.png")]
 		private static var bm3:Class;
 		
-		public function BlueListStyle() {
+		public function BlueList() {
 			container = new ScrollContainerStyle();
 			
 			container.background = new ScaleBitmap(new BitmapData(1, 1, false, 0x333333));
@@ -78,7 +78,7 @@ package bloom.themes.blue
 		///////////////////////////////////
 		
 		override public function toString():String {
-			return "[bloom.themes.blue.BlueListStyle]";
+			return "[bloom.themes.blue.BlueList]";
 		}
 	}
 

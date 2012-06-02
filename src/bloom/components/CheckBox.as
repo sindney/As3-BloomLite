@@ -89,7 +89,7 @@ package bloom.components
 			_title.move(_height + _title.margin.left, (_height - _title.height) / 2);
 		}
 		
-		private function onMouseClick(e:MouseEvent):void {
+		protected function onMouseClick(e:MouseEvent):void {
 			value = !_value;
 		}
 		

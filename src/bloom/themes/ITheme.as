@@ -44,6 +44,8 @@ package bloom.themes
 		function get accordion():AccordionStyle;
 		
 		function get list():ListStyle;
+		
+		function get tree():TreeStyle;
 	}
 	
 }
